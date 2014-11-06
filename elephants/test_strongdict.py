@@ -205,7 +205,16 @@ def test_nmemo():
   assert(True == tmf)
 
   assert(3 == foo('size_elephant_cache'))
-  
+
+def test_clear():
+  @memo
+  def g(x): return x
+ 
+  assert(5 == g(5))
+  assert(5 == g(5))
+  assert(6 == g(6))
+  g('clear_elephant_cache')
+  assert(5 == g(5))
 
 if __name__ == "__main__":
   import sys
