@@ -225,6 +225,9 @@ class StrongDict(object):
     self.strong_cache = self.strong_cache_end = None
     self.n = 0
 
+  def clear_weak(self):
+    self.__weak_cache = weakref.WeakValueDictionary()
+
   def copy(self): return StrongDict(self)
 
   # SHOULD ONLY BE USED FOR UNIT TESTS IN THIS PACKAGE.
@@ -241,6 +244,7 @@ def memoizer(f, tlimit=None, limit=None):
       if (type(x) is str):
         if 'clear_elephant_cache' == x:
           cache.clear()
+          cache.clear_weak()
           return x
         elif 'size_elephant_cache' == x:
           return len(cache)
