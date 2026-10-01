@@ -7,7 +7,7 @@ with open('elephants/readme.py', 'w') as fh: fh.write(script)
 
 setup(
   name='Elephants',
-  version='1.0.0',
+  version='1.1.0', # Python 3 version
   author='Marc Schwarzschild',
   author_email='ms@TheBrookhavenGroup.com',
   url='http://github.com/Schwarzschild/Elephants',
